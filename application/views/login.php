@@ -59,28 +59,49 @@ function submitFormWithValue(){
 <body background="<?php base_url() ?>http://vivekuk.tk/aboardci/img/Drag Layer.png")?>
    
 
-  <div id="spacer" style="padding-top:100px">
+ <div id="spacer" style="padding-top:100px">
   </div>
   <div id="icon" align="center" style=" padding-top:200px;"><img src="http://vivekuk.tk/aboardci/img/car icon2.png")?>
   </div>
-  <div id="loginform" style="padding-top:50px; display:none" align="center" >
-  <h1 style="font-size:24px;">Login</h1>
-  <?php
+  <div class="container" id="loginform" style="display:none">
+    <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Login</h3>
+        </div>
+          <div class="panel-body">
+ <?php
   echo form_open('','');
+  echo "  <fieldset> <div class='form-group'>";
   echo form_label($login_form["username"]["label"], $login_form["username"]["field"]);
-  echo form_input($login_form["username"]["field"],'');
+  $data = array('name' => $login_form["username"]["field"],
+                 'class'=> "form-control",
+                  'placeholder'=> "Email" );
+  echo form_input($data);
   echo "<br><br>";
-
+  
   echo form_label($login_form["password"]["label"], $login_form["password"]["field"]);
-  echo form_input($login_form["password"]["field"],'');
+  $data['name']=$login_form["password"]["field"];
+  $data['placeholder']="Password";
+  echo form_password($data);
   echo "<br><br>";
-  echo form_submit('submit','Submit');
+  echo "</div>";
+  $datasub= array('name' => "submit" ,
+                   'value' => "Login",
+                    'class' => "btn btn-lg btn-success btn-block" );
+  echo form_submit($datasub);
+  echo "</fieldset>";
   echo form_close();
   ?>
-  <br><br>
-  <a href="http://vivekuk.tk/aboardci/index.php/login/register"class="buttonsuper">
-        <span>Register</span>
+  
+  <br>
+    <button type="button" class="btn btn-lg btn-warning btn-block" onclick="window.location.href='http://vivekuk.tk/aboardci/index.php/login/register'">Register</button>
     </a>
+  </div>
+  </div>
+  </div>
+  </div>
   </div>
   
   <script>
